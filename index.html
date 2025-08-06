@@ -70,6 +70,7 @@
 <h1>Dice Roller</h1>
 <p>Click the button to roll the dice!</p>
   <button onclick="rollDice()">Roll Dice</button>
+  <img id="diceImage" src="./images/dice1.png" alt="dice" style="width: 100px; margin-top: 20px;">
   <div id="diceResult" style="font-size: 48px; margin-top: 20px;"></div>
       </div>
       <!--This is content card 3-->
@@ -106,6 +107,8 @@
   <script>
   function rollDice() {
     const result = Math.floor(Math.random() * 6) + 1; // Random number 1-6
+    const diceImage = document.getElementById('diceImage');
+    diceImage.src = `./images/dice${result}.png`;
     const diceResult = document.getElementById('diceResult');
     // Optional: use Unicode dice characters 🎲
     const diceFaces = ["", "🎲1", "🎲2", "🎲3", "🎲4", "🎲5", "🎲6"];
