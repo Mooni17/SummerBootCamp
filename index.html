@@ -42,18 +42,32 @@
 <!-- Slideshow container -->
   <div class="slideshow-container">
 
-      <!-- Full-width images with number and caption text -->
-      <div class="mySlides">
-      <img src="./images/me.jpg">
-      </div>
-  
-      <div class="mySlides">
-      <img src="./images/me2.jpg">
-      </div>
-  
-      <div class="mySlides">
-      <img src="./images/me3.jpg">
-      </div>
+  <!-- Full-width images -->
+  <div class="mySlides">
+    <img src="./images/me.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="./images/me2.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="./images/me3.jpg" style="width:100%">
+  </div>
+
+  <!-- Navigation buttons -->
+  <a class="prev" onclick="changeSlide(-1)">❮</a>
+  <a class="next" onclick="changeSlide(1)">❯</a>
+
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
   
   </div>
   <br>
@@ -125,6 +139,41 @@
       }
     }, 100); // Speed of rolling animation (ms)
   }
+
+
+  
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function changeSlide(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
 </script>
 
 </body>
