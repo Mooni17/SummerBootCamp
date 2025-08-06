@@ -38,7 +38,7 @@
     <div class="content">
       <!--This is content card 1-->
       <div class="card">
-
+<h1>Slideshow</h1>
 <!-- Slideshow container -->
   <div class="slideshow-container">
 
@@ -67,7 +67,10 @@
       </div>
       <!--This is content card 2-->
       <div class="card">
-
+<h1>Dice Roller</h1>
+<p>Click the button to roll the dice!</p>
+  <button onclick="rollDice()">Roll Dice</button>
+  <div id="diceResult" style="font-size: 48px; margin-top: 20px;"></div>
       </div>
       <!--This is content card 3-->
       <div class="card">
@@ -100,7 +103,16 @@
       <p>Phone: ADD NUMBER HERE</p>
     </div>
   </footer>
-  
+  <script>
+  function rollDice() {
+    const result = Math.floor(Math.random() * 6) + 1; // Random number 1-6
+    const diceResult = document.getElementById('diceResult');
+    // Optional: use Unicode dice characters 🎲
+    const diceFaces = ["", "🎲1", "🎲2", "🎲3", "🎲4", "🎲5", "🎲6"];
+    diceResult.textContent = diceFaces[result];
+  }
+</script>
+
 </body>
 
 </html>
